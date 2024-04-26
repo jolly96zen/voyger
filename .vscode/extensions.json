@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "eamodio.gitlens",
+    "MS-CEINTL.vscode-language-pack-ja",
+    "Vue.volar",
+    "Nuxtr.nuxtr-vscode",
+    "dbaeumer.vscode-eslint",
+    "yusukehirao.vscode-markuplint",
+    "esbenp.prettier-vscode"
+  ]
+}
