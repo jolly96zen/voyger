@@ -20,8 +20,8 @@
   import type { AppInformation } from "~/types"
 
   const appInformation: AppInformation = {
-    title: "Nuxt-App",
+    title: "Voyger",
     developerName: "Kotaro Kuroda",
-    repositoryURL: "https://github.com/jolly96zen/nuxt-app-boilerplate"
+    repositoryURL: "https://github.com/jolly96zen/voyger"
   }
 </script>
