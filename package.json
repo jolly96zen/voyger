@@ -8,38 +8,39 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "preinstall": "npx only-allow pnpm",
-    "install:vscode-extensions-recommendations": "for ext in $(jq -r '.recommendations[]' .vscode/extensions.json); do code --install-extension $ext; echo \"\"; done"
+    "check-updates": "npx npm-check-updates",
+    "upgrade": "npx npm-check-updates -u"
   },
   "dependencies": {
     "nuxt": "3.11.2",
-    "vue": "3.4.21",
-    "vue-router": "4.3.0"
+    "vue": "3.4.25",
+    "vue-router": "4.3.2"
   },
   "devDependencies": {
-    "@markuplint/vue-parser": "4.5.0",
-    "@markuplint/vue-spec": "4.4.0",
-    "@nuxt/eslint": "0.3.8",
-    "@nuxt/image": "1.5.0",
+    "@markuplint/vue-parser": "4.5.1",
+    "@markuplint/vue-spec": "4.4.1",
+    "@nuxt/eslint": "0.3.10",
+    "@nuxt/image": "1.6.0",
     "@nuxt/test-utils": "3.12.1",
     "@pinia/nuxt": "0.5.1",
-    "@quasar/extras": "1.16.11",
     "@secretlint/secretlint-rule-preset-recommend": "8.2.3",
     "@vue/test-utils": "2.4.5",
     "@vueuse/core": "10.9.0",
     "@vueuse/nuxt": "10.9.0",
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "1.11.3",
     "eslint-config-prettier": "9.1.0",
+    "firebase": "10.11.1",
     "happy-dom": "14.7.1",
-    "markuplint": "4.6.0",
-    "nuxt-quasar-ui": "2.0.8",
+    "markuplint": "4.6.1",
+    "nuxt-vuefire": "1.0.2",
     "pinia": "2.1.7",
     "pinia-plugin-persistedstate": "3.2.1",
     "playwright-core": "1.43.1",
     "prettier": "3.2.5",
     "prettier-plugin-organize-imports": "3.2.4",
-    "quasar": "2.15.3",
     "secretlint": "8.2.3",
-    "vitest": "1.5.0",
-    "zod": "3.22.5"
+    "vitest": "1.5.2",
+    "zod": "3.23.4"
   }
 }
