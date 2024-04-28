@@ -60,7 +60,7 @@
 
 <script setup lang="ts">
   import type { FirebaseError } from "firebase/app"
-  import { signInWithPopup, GoogleAuthProvider } from "firebase/auth"
+  import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 
   definePageMeta({
     layout: "center"
@@ -74,10 +74,15 @@
   const auth = useFirebaseAuth()
   const googleAuthProvider = new GoogleAuthProvider()
 
+  const userStore = useUserStore()
+  const { setIsLoggedin, setIsAnonymousUser } = userStore
+
   const tryDemo = (): void => {
     error.value = undefined
 
-    navigateTo("/", { external: true })
+    setIsLoggedin(true)
+    setIsAnonymousUser(true)
+    navigateTo("/dashboard", { external: true })
   }
 
   const loginWithGoogle = (): void => {
@@ -86,6 +91,8 @@
     if (auth !== null) {
       signInWithPopup(auth, googleAuthProvider)
         .then((): void => {
+          setIsLoggedin(true)
+          setIsAnonymousUser(false)
           navigateTo("/dashboard", { external: true })
         })
         .catch((reason: FirebaseError) => {

@@ -1,17 +1,14 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
-  const user = await getCurrentUser()
+export default defineNuxtRouteMiddleware((to, from) => {
+  const userStore = useUserStore()
+  const { name, isLoggedin, isAnonymousUser } = storeToRefs(userStore)
 
   if (to.path === "/login") {
-    if (user !== null) {
-      if (from.path === "/login") {
-        return navigateTo("/dashboard", { external: true })
-      } else {
-        return navigateTo(from.path, { external: true })
-      }
+    if (isLoggedin.value && !isAnonymousUser.value) {
+      return navigateTo("/dashboard")
     }
   } else {
-    if (user === null) {
-      return navigateTo("/login", { external: true })
+    if (!isLoggedin.value) {
+      return navigateTo("/login")
     }
   }
 })

@@ -3,9 +3,18 @@ import { defineNuxtConfig } from "nuxt/config"
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+  spaLoadingTemplate: true,
   devtools: { enabled: true },
   experimental: { typedPages: true },
-  modules: ["@nuxt/eslint", "@nuxt/test-utils/module", "@nuxt/image", "@vueuse/nuxt", "@pinia/nuxt", "nuxt-vuefire"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/test-utils/module",
+    "@nuxt/image",
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
+    "nuxt-vuefire"
+  ],
   css: ["bootstrap/dist/css/bootstrap.min.css"],
   vuefire: {
     auth: {
