@@ -8,9 +8,12 @@
 
 <script setup lang="ts">
   useHead({
-    title: "Voyger",
+    titleTemplate: (pageTitle) => {
+      return pageTitle !== undefined ? "Voyger" + " - " + pageTitle : "Voyger"
+    },
     htmlAttrs: {
-      lang: "ja"
+      lang: "ja",
+      "data-bs-theme": "dark"
     }
   })
 </script>

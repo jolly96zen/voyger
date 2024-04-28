@@ -1,10 +1,10 @@
 <template>
   <div>
-    <span class="text-h1">{{ appInformation.title }}</span>
+    <span>{{ appInformation.title }}</span>
     <hr />
-    <span class="text-caption">Developer Name: {{ appInformation.developerName }}</span>
+    <span>Developer Name: {{ appInformation.developerName }}</span>
     <br />
-    <span class="text-caption">
+    <span>
       Repository URL:
       <NuxtLink
         :to="appInformation.repositoryURL"
