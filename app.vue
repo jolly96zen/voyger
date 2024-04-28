@@ -1,8 +1,13 @@
 <template>
   <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <Html
+      lang="ja"
+      data-bs-theme="dark"
+    >
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </Html>
   </div>
 </template>
 
@@ -10,10 +15,6 @@
   useHead({
     titleTemplate: (pageTitle) => {
       return pageTitle !== undefined ? "Voyger" + " - " + pageTitle : "Voyger"
-    },
-    htmlAttrs: {
-      lang: "ja",
-      "data-bs-theme": "dark"
     }
   })
 </script>
