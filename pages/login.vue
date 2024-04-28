@@ -63,7 +63,7 @@
   import { signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 
   definePageMeta({
-    layout: "login"
+    layout: "center"
   })
   useHead({
     title: "login"
