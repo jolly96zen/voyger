@@ -1,17 +1,26 @@
 export const useUserStore = defineStore(
   "user",
   () => {
-    const name: Ref<string> = ref("anonymous")
+    const userName: Ref<string> = ref("Unknown")
     const isLoggedin: Ref<boolean> = ref(false)
-    const isAnonymousUser: Ref<boolean> = ref(false)
+    const isDemoUser: Ref<boolean> = ref(false)
+
+    const setUserName = (value: string): void => {
+      userName.value = value
+    }
     const setIsLoggedin = (value: boolean): void => {
       isLoggedin.value = value
     }
-    const setIsAnonymousUser = (value: boolean): void => {
-      isAnonymousUser.value = value
+    const setIsDemoUser = (value: boolean): void => {
+      isDemoUser.value = value
+    }
+    const $resetUserStore = (): void => {
+      userName.value = "Unknown"
+      isLoggedin.value = false
+      isDemoUser.value = false
     }
 
-    return { name, isLoggedin, isAnonymousUser, setIsLoggedin, setIsAnonymousUser }
+    return { userName, isLoggedin, isDemoUser, setUserName, setIsLoggedin, setIsDemoUser, $resetUserStore }
   },
   {
     persist: {
