@@ -13,19 +13,13 @@
     >
       <img
         src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
-        alt="603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
+        alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
         class="card-img-top"
       />
       <div class="card-body">
-        <h2 class="card-title">Voyger</h2>
+        <h2 class="card-title text-center">Voyger</h2>
         <hr />
-        <div class="card-text">ライブ狂いのためのWebアプリ</div>
-        <ul>
-          <li class="card-text">ライブ情報の取得</li>
-          <li class="card-text">ライブ参戦の計画</li>
-          <li class="card-text">代金支払いの管理</li>
-        </ul>
-        <div class="card-text">とかができたら良い</div>
+        <div class="card-text">Spotify Web APIを使って何かするWebアプリ</div>
         <br />
         <div class="card-text">応答願ウ 心ノ裏側ヲ</div>
         <div class="card-text">グルリト回リ 戻ッテキタ</div>
@@ -45,7 +39,7 @@
             <div class="col">
               <button
                 type="button"
-                class="btn btn-outline-success border border-success border-2"
+                class="btn btn-outline-success border border-success border-2 disabled"
                 @click="loginWithGoogle()"
               >
                 With Google
@@ -75,13 +69,14 @@
   const googleAuthProvider = new GoogleAuthProvider()
 
   const userStore = useUserStore()
-  const { setIsLoggedin, setIsAnonymousUser } = userStore
+  const { setUserName, setIsLoggedin, setIsDemoUser, $resetUserStore } = userStore
 
   const tryDemo = (): void => {
     error.value = undefined
 
+    setUserName("Demo")
     setIsLoggedin(true)
-    setIsAnonymousUser(true)
+    setIsDemoUser(true)
     navigateTo("/dashboard", { external: true })
   }
 
@@ -92,7 +87,7 @@
       signInWithPopup(auth, googleAuthProvider)
         .then((): void => {
           setIsLoggedin(true)
-          setIsAnonymousUser(false)
+          setIsDemoUser(false)
           navigateTo("/dashboard", { external: true })
         })
         .catch((reason: FirebaseError) => {
