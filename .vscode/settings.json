@@ -4,12 +4,10 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "eslint.experimental.useFlatConfig": true,
-  "markuplint.enable": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "[markdown]": {
     "editor.formatOnSave": false,
     "files.trimTrailingWhitespace": false
-  },
-  "vue.autoInsert.dotValue": true
+  }
 }
