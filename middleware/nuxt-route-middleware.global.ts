@@ -1,13 +1,21 @@
 export default defineNuxtRouteMiddleware((to, from) => {
   const userStore = useUserStore()
-  const { userName, isLoggedin, isDemoUser } = storeToRefs(userStore)
+  const { isTryingToLogin } = storeToRefs(userStore)
 
-  if (to.path === "/login") {
-    if (isLoggedin.value && !isDemoUser.value) {
+  const supabaseSession = useSupabaseSession()
+
+  if (to.path.includes("/login")) {
+    if (supabaseSession.value !== null) {
       return navigateTo("/dashboard")
     }
+  } else if (to.path.includes("/confirm")) {
+    if (supabaseSession.value !== null) {
+      return navigateTo("/dashboard")
+    } else if (!isTryingToLogin.value) {
+      return navigateTo("/login")
+    }
   } else {
-    if (!isLoggedin.value) {
+    if (supabaseSession.value === null) {
       return navigateTo("/login")
     }
   }

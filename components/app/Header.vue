@@ -51,10 +51,11 @@
             <ul class="navbar-nav justify-content-end flex-grow-1">
               <li class="nav-item">
                 <NuxtLink
-                  class="nav-link"
                   to="/dashboard"
+                  class="nav-link"
                 >
-                  ダッシュボード
+                  <i class="bi bi-bar-chart-fill mx-1"></i>
+                  <span>ダッシュボード</span>
                 </NuxtLink>
               </li>
               <li class="nav-item dropdown">
@@ -63,7 +64,7 @@
                   role="button"
                   data-bs-toggle="dropdown"
                 >
-                  <i class="bi bi-person"></i>
+                  <i class="bi bi-person-fill mx-1"></i>
                   <span>アカウント</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -72,15 +73,7 @@
                       class="dropdown-item disabled"
                       href="#"
                     >
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item disabled"
-                      href="#"
-                    >
-                      Another action
+                      プロフィール
                     </a>
                   </li>
                   <li>
@@ -88,17 +81,8 @@
                   </li>
                   <li>
                     <a
-                      v-if="isDemoUser"
                       class="dropdown-item"
-                      href="javascript:void(0);"
-                      @click="logout()"
-                    >
-                      デモを終了
-                    </a>
-                    <a
-                      v-else
-                      class="dropdown-item"
-                      href="javascript:void(0);"
+                      href="javascript: void(0);"
                       @click="logout()"
                     >
                       ログアウト
@@ -116,11 +100,24 @@
 
 <script setup lang="ts">
   const userStore = useUserStore()
-  const { userName, isLoggedin, isDemoUser } = storeToRefs(userStore)
-  const { setUserName, setIsLoggedin, setIsDemoUser, $resetUserStore } = userStore
+  const { setUserName, setIsTryingToLogin, $resetUserStore } = userStore
 
-  const logout = (): void => {
+  const supabase = useSupabaseClient()
+  const supabaseUser = useSupabaseUser()
+
+  const logout = async () => {
+    await supabase.auth.signOut()
     $resetUserStore()
-    navigateTo("/login", { external: true })
+
+    return navigateTo("/login")
   }
+
+  watch(
+    supabaseUser,
+    (): void => {
+      setUserName(supabaseUser.value?.user_metadata["name"] ?? "Unknown")
+      setIsTryingToLogin(false)
+    },
+    { immediate: true }
+  )
 </script>

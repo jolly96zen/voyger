@@ -8,12 +8,16 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "check-updates": "npx npm-check-updates",
-    "upgrade": "npx npm-check-updates -u"
+    "preinstall": "npx only-allow pnpm",
+    "clean": "rm -rf .nuxt .pnpm-store node_modules pnpm-lock.yaml",
+    "clean-install": "pnpm run clean && pnpm install",
+    "clean-run": "pnpm run clean-install && pnpm run dev",
+    "check-updates": "pnpx npm-check-updates",
+    "upgrade": "pnpx npm-check-updates -u"
   },
   "dependencies": {
     "nuxt": "3.11.2",
-    "vue": "3.4.25",
+    "vue": "3.4.26",
     "vue-router": "4.3.2"
   },
   "devDependencies": {
@@ -22,24 +26,23 @@
     "@nuxt/eslint": "0.3.10",
     "@nuxt/image": "1.6.0",
     "@nuxt/test-utils": "3.12.1",
+    "@nuxtjs/supabase": "1.2.1",
     "@pinia-plugin-persistedstate/nuxt": "1.2.0",
     "@pinia/nuxt": "0.5.1",
-    "@secretlint/secretlint-rule-preset-recommend": "8.2.3",
+    "@secretlint/secretlint-rule-preset-recommend": "8.2.4",
     "@vue/test-utils": "2.4.5",
     "@vueuse/core": "10.9.0",
     "@vueuse/nuxt": "10.9.0",
     "eslint-config-prettier": "9.1.0",
-    "firebase": "10.11.1",
     "happy-dom": "14.7.1",
     "markuplint": "4.6.1",
-    "nuxt-vuefire": "1.0.2",
     "pinia": "2.1.7",
     "pinia-plugin-persistedstate": "3.2.1",
     "playwright-core": "1.43.1",
     "prettier": "3.2.5",
     "prettier-plugin-organize-imports": "3.2.4",
-    "secretlint": "8.2.3",
-    "vitest": "1.5.2",
-    "zod": "3.23.4"
+    "secretlint": "8.2.4",
+    "vitest": "1.5.3",
+    "zod": "3.23.5"
   }
 }

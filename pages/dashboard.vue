@@ -1,29 +1,19 @@
 <template>
   <div class="container">
-    <div>
-      <div
-        class="alert alert-success alert-dismissible fade show border border-success border-2"
-        role="alert"
-      >
-        <div>こんにちは、{{ userName }}さん。</div>
-        <div>Voygerへようこそ。こちらはダッシュボード画面です。</div>
-        <div>あなたの好きなアーティストを可視化してみましょう。</div>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
+    <div style="max-width: 90%">
+      <DashboardNotification :userName="userName" />
+      <div v-if="supabaseUser?.confirmed_at === undefined">
+        <DashboardAlert />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  useHead({
-    title: "dashboard"
-  })
+  useHead({ title: "dashboard" })
 
   const userStore = useUserStore()
-  const { userName, isLoggedin, isDemoUser } = storeToRefs(userStore)
+  const { userName } = storeToRefs(userStore)
+
+  const supabaseUser = useSupabaseUser()
 </script>
