@@ -1,13 +1,8 @@
 <template>
   <div>
-    <Html
-      lang="ja"
-      data-bs-theme="dark"
-    >
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-    </Html>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
