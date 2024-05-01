@@ -15,6 +15,7 @@
 </script>
 
 <style>
+  @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
   @import url("https://fonts.googleapis.com/css2?family=DotGothic16&display=swap");
 
   body {

@@ -1,16 +1,22 @@
-import daisyui from "daisyui"
 import type { Config } from "tailwindcss"
 
 export default {
-  content: ["docs/content/**/*.md"],
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./app.vue",
+    "./error.vue"
+  ],
   theme: {
-    extend: {
-      aspectRatio: {
-        auto: "auto",
-        square: "1 / 1",
-        video: "16 / 9"
-      }
-    }
+    extend: {}
   },
-  plugins: [daisyui]
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/container-queries"),
+    require("daisyui")
+  ]
 } satisfies Config

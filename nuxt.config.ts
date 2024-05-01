@@ -10,12 +10,18 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxt/image",
     "@nuxt/test-utils/module",
-    "@nuxt/ui",
     "@nuxtjs/supabase",
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "@vueuse/nuxt"
   ],
+  css: ["~/assets/css/main.css"],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {}
+    }
+  },
   supabase: {
     url: process.env?.["SUPABASE_PROJECT_URL"] ?? "",
     key: process.env?.["SUPABASE_API_KEY"] ?? "",
