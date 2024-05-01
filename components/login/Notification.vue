@@ -5,7 +5,7 @@
       role="alert"
     >
       <div>Voygerは、Spotify APIを利用します。</div>
-      <div>Demoによるログイン機能は、実装を延期しています。</div>
+      <div>Demoアカウントによるログイン機能は、実装を延期しています。</div>
       <div>
         参考URL:
         <NuxtLink
