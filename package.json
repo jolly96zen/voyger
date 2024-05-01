@@ -8,12 +8,12 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "preinstall": "npx only-allow pnpm",
-    "clean": "rm -rf .nuxt .pnpm-store node_modules pnpm-lock.yaml",
-    "clean-install": "pnpm run clean && pnpm install",
-    "clean-run": "pnpm run clean-install && pnpm run dev",
-    "check-updates": "pnpx npm-check-updates",
-    "upgrade": "pnpx npm-check-updates -u"
+    "preinstall": "pnpx only-allow pnpm",
+    "voy": "pnpm run voy:install && pnpm run dev",
+    "voy:remove": "rm -rf .nuxt .pnpm-store node_modules pnpm-lock.yaml",
+    "voy:install": "pnpm run voy:remove && pnpm install",
+    "voy:check-updates": "pnpx npm-check-updates",
+    "voy:upgrade": "pnpx npm-check-updates -u"
   },
   "dependencies": {
     "nuxt": "3.11.2",
