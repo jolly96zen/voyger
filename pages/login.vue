@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div class="flex h-screen w-screen items-center justify-center">
-      <div class="mx-5 my-5 max-w-fit">
-        <LoginNotification class="my-3 text-xs" />
+    <div class="flex items-center justify-center lg:h-screen lg:w-screen">
+      <div class="mx-2 my-2 grid justify-items-center">
+        <LoginNotification class="my-1" />
         <div v-if="isLoginError">
-          <LoginAlert class="my-3 text-xs" />
+          <LoginAlert class="my-1" />
         </div>
         <div class="flex justify-center">
           <LoginCard
+            class="my-1"
             @try-demo="tryDemo()"
             @login-with-spotify="loginWithSpotify()"
           />

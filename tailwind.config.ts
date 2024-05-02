@@ -7,7 +7,8 @@ export default {
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
     "./app.vue",
-    "./error.vue"
+    "./error.vue",
+    "./node_modules/flowbite/**/*.{js,ts}"
   ],
   theme: { extend: {} },
   plugins: [
@@ -15,7 +16,6 @@ export default {
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/container-queries"),
-    require("daisyui")
-  ],
-  daisyui: { themes: true }
+    require("flowbite/plugin")
+  ]
 } satisfies Config

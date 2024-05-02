@@ -1,18 +1,29 @@
 <template>
   <div>
-    <Html lang="ja">
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
+    <Html
+      lang="ja"
+      class="dark"
+    >
+      <Body class="dark:bg-gray-900">
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </Body>
     </Html>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { initFlowbite } from "flowbite"
+
   useHead({
     titleTemplate: (pageTitle) => {
       return pageTitle !== undefined ? "Voyger" + " - " + pageTitle : "Voyger"
     }
+  })
+
+  onMounted(() => {
+    initFlowbite()
   })
 </script>
 
