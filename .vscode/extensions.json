@@ -6,6 +6,7 @@
     "Nuxtr.nuxtr-vscode",
     "dbaeumer.vscode-eslint",
     "yusukehirao.vscode-markuplint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss"
   ]
 }

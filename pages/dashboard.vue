@@ -1,9 +1,12 @@
 <template>
-  <div class="container">
-    <div style="max-width: 90%">
-      <DashboardNotification :userName="userName" />
+  <div>
+    <div class="mx-3 my-3 max-w-fit">
+      <DashboardNotification
+        :user-name="userName"
+        class="my-3 text-xs"
+      />
       <div v-if="supabaseUser?.confirmed_at === undefined">
-        <DashboardAlert />
+        <DashboardAlert class="my-3 text-xs" />
       </div>
     </div>
   </div>
