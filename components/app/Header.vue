@@ -1,123 +1,46 @@
 <template>
   <div>
-    <nav
-      class="navbar navbar-expand-lg sticky-top mb-3"
+    <div
+      class="navbar"
       style="background-color: #008080"
     >
-      <div class="container-fluid">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <NuxtLink
-          class="navbar-brand row align-items-center"
-          to="/dashboard"
-        >
-          <div class="col pe-0">
+      <div class="navbar-start">
+        <div class="flex-none lg:hidden">
+          <label
+            for="voyger-menu-drawer"
+            aria-label="open sidebar"
+            class="btn btn-square btn-ghost"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block h-6 w-6 stroke-current"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </label>
+        </div>
+      </div>
+      <div class="navbar-center">
+        <NuxtLink to="/dashboard">
+          <div class="flex items-center">
             <img
               src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
               alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
               width="50"
               height="50"
             />
-          </div>
-          <div class="col px-0">
-            <h2>Voyger</h2>
+            <div class="text-xl">Voyger</div>
           </div>
         </NuxtLink>
-        <div
-          id="offcanvasNavbar"
-          class="offcanvas offcanvas-start"
-          tabindex="-1"
-        >
-          <div class="offcanvas-header">
-            <h5
-              id="offcanvasNavbarLabel"
-              class="offcanvas-title"
-            >
-              Voyger
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1">
-              <li class="nav-item">
-                <NuxtLink
-                  to="/dashboard"
-                  class="nav-link"
-                >
-                  <i class="bi bi-bar-chart-fill mx-1"></i>
-                  <span>ダッシュボード</span>
-                </NuxtLink>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                >
-                  <i class="bi bi-person-fill mx-1"></i>
-                  <span>アカウント</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li>
-                    <a
-                      class="dropdown-item disabled"
-                      href="#"
-                    >
-                      プロフィール
-                    </a>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      href="javascript: void(0);"
-                      @click="logout()"
-                    >
-                      ログアウト
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
-    </nav>
+      <div class="navbar-end"></div>
+    </div>
   </div>
 </template>
-
-<script setup lang="ts">
-  const userStore = useUserStore()
-  const { setUserName, setIsTryingToLogin, $resetUserStore } = userStore
-
-  const supabase = useSupabaseClient()
-  const supabaseUser = useSupabaseUser()
-
-  const logout = async () => {
-    await supabase.auth.signOut()
-    $resetUserStore()
-
-    return navigateTo("/login")
-  }
-
-  watch(
-    supabaseUser,
-    (): void => {
-      setUserName(supabaseUser.value?.user_metadata["name"] ?? "Unknown")
-      setIsTryingToLogin(false)
-    },
-    { immediate: true }
-  )
-</script>

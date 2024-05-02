@@ -9,14 +9,13 @@ export default {
     "./app.vue",
     "./error.vue"
   ],
-  theme: {
-    extend: {}
-  },
+  theme: { extend: {} },
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/container-queries"),
     require("daisyui")
-  ]
+  ],
+  daisyui: { themes: true }
 } satisfies Config

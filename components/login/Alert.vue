@@ -1,10 +1,12 @@
 <template>
   <div>
     <div
-      class="alert alert-danger border border-danger border-2"
       role="alert"
+      class="alert alert-error"
     >
-      ログインに失敗しました。
+      <div class="text-left">
+        <div>ログインに失敗しました。</div>
+      </div>
     </div>
   </div>
 </template>
