@@ -2,7 +2,29 @@
   <div>
     <div class="card glass card-compact bg-teal-900">
       <div class="card-body">
-        <h2 class="card-title">ランキング</h2>
+        <div class="flex items-center justify-between">
+          <h2 class="card-title">ランキング</h2>
+          <ul
+            id="artrank-menu"
+            class="menu menu-horizontal menu-sm p-0"
+            @click="updateSpotifyRequestTimeRange"
+          >
+            <li>
+              <a name="short_term">4週間</a>
+            </li>
+            <li>
+              <a
+                name="medium_term"
+                class="active"
+              >
+                6ヵ月間
+              </a>
+            </li>
+            <li>
+              <a name="long_term">1年間</a>
+            </li>
+          </ul>
+        </div>
         <div v-if="!pending && error === null">
           <div>あなたがよく聞くアーティストのランキングです。</div>
         </div>
@@ -105,18 +127,33 @@
   const spotifyRequestLimit: Ref<number> = ref(10)
   const spotifyRequestOffset: Ref<number> = ref(0)
 
+  const spotifyRequestQuery = computed(() => {
+    return {
+      time_range: spotifyRequestTimeRange.value,
+      limit: spotifyRequestLimit.value.toString(),
+      offset: spotifyRequestOffset.value.toString()
+    }
+  })
+
   const errorStatusCode: Ref<number> = ref(400)
   const errorStatusMessage: Ref<string> = ref("")
 
   const { data, pending, error } = await useLazyFetch("https://api.spotify.com/v1/me/top/" + spotifyRequestType.value, {
-    query: {
-      time_range: spotifyRequestTimeRange.value,
-      limit: spotifyRequestLimit.value.toString(),
-      offset: spotifyRequestOffset.value.toString()
-    },
+    query: spotifyRequestQuery,
     headers: { authorization: "Bearer" + " " + (supabaseSession.value?.provider_token ?? "") },
-    pick: ["items"]
+    pick: ["items"],
+    watch: [spotifyRequestQuery]
   })
+
+  const updateSpotifyRequestTimeRange = (event) => {
+    for (const element of event.currentTarget.getElementsByTagName("a")) {
+      element.classList.remove("active")
+    }
+
+    event.target.classList.add("active")
+
+    spotifyRequestTimeRange.value = event.target.name ?? ""
+  }
 
   watch(data, (): void => {
     // console.dir(data.value.items)
