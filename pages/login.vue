@@ -5,16 +5,12 @@
         <LoginNotification
           v-if="!isLoginNotificationHidden"
           class="my-1"
-          @close-login-notification="closeLoginNotification()"
-        />
-        <LoginAlert
-          v-if="!isLoginAlertHidden"
-          class="my-1"
+          @close-login-notification="closeLoginNotification"
         />
         <LoginCard
           class="my-1 max-w-sm"
-          @try-demo="tryDemo()"
-          @login-with-spotify="loginWithSpotify()"
+          @try-demo="tryDemo"
+          @login-with-spotify="loginWithSpotify"
         />
       </div>
     </div>
@@ -29,7 +25,6 @@
   const { $resetUserStore } = userStore
 
   const isLoginNotificationHidden: Ref<boolean> = ref(false)
-  const isLoginAlertHidden: Ref<boolean> = ref(true)
 
   const closeLoginNotification = (): void => {
     isLoginNotificationHidden.value = true

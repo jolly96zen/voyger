@@ -2,7 +2,7 @@
   <div>
     <div class="drawer lg:drawer-open">
       <input
-        id="voyger-menu-drawer"
+        id="app-menu-drawer"
         type="checkbox"
         class="drawer-toggle"
       />
@@ -11,7 +11,7 @@
           <div class="navbar-start">
             <div class="flex-none lg:hidden">
               <label
-                for="voyger-menu-drawer"
+                for="app-menu-drawer"
                 aria-label="open sidebar"
                 class="btn btn-square btn-ghost"
               >
@@ -80,7 +80,7 @@
                 <li>
                   <a
                     href="javascript: void(0)"
-                    @click="logout()"
+                    @click="logout"
                   >
                     ログアウト
                   </a>
@@ -110,7 +110,7 @@
       </div>
       <div class="drawer-side">
         <label
-          for="voyger-menu-drawer"
+          for="app-menu-drawer"
           aria-label="close sidebar"
           class="drawer-overlay"
         ></label>

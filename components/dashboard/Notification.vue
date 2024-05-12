@@ -11,7 +11,7 @@
       <div class="self-end">
         <button
           class="btn btn-success btn-sm"
-          @click="closeDashboardNotification()"
+          @click="closeDashboardNotification"
         >
           閉じる
         </button>

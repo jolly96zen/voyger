@@ -25,7 +25,7 @@
           <button
             class="btn glass btn-block flex justify-between text-white"
             disabled
-            @ckick="tryDemo()"
+            @ckick="tryDemo"
           >
             <div>
               <i class="bi bi-person-fill"></i>
@@ -35,7 +35,7 @@
           </button>
           <button
             class="btn btn-block flex justify-start bg-green-500 text-white"
-            @click="loginWithSpotify()"
+            @click="loginWithSpotify"
           >
             <div>
               <i class="bi bi-spotify"></i>

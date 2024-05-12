@@ -20,7 +20,7 @@
       <div class="self-end">
         <button
           class="btn btn-warning btn-sm"
-          @click="closeLoginNotification()"
+          @click="closeLoginNotification"
         >
           閉じる
         </button>

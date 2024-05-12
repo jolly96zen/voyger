@@ -4,7 +4,7 @@
       v-if="!isDashboardNotificationHidden"
       :user-name="supabaseUser?.user_metadata['name']"
       class="mx-2 my-2 max-w-fit"
-      @close-dashboard-notification="closeDashboardNotification()"
+      @close-dashboard-notification="closeDashboardNotification"
     />
     <div v-if="supabaseUser?.confirmed_at === undefined">
       <DashboardAlert class="mx-2 my-2 max-w-fit" />
