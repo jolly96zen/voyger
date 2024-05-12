@@ -1,19 +1,7 @@
 <template>
   <div>
-    <slot />
+    <AppDrawer>
+      <slot />
+    </AppDrawer>
   </div>
 </template>
-
-<style>
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-  }
-
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
