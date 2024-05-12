@@ -131,43 +131,12 @@
 </template>
 
 <script setup lang="ts">
-  const requestURL = useRequestURL()
-
   const userStore = useUserStore()
-  const { setIsTryingToLogin, $resetUserStore } = userStore
+  const { setIsTryingToLogin } = userStore
 
-  const supabase = useSupabaseClient()
-  const supabaseSession = useSupabaseSession()
   const supabaseUser = useSupabaseUser()
-
-  const logout = async () => {
-    await supabase.auth.signOut({ scope: "global" })
-    $resetUserStore()
-
-    return navigateTo("/login")
-  }
 
   onMounted((): void => {
     setIsTryingToLogin(false)
-  })
-
-  watch(supabaseSession, async (): Promise<void> => {
-    if (
-      supabaseSession.value !== null &&
-      (supabaseSession.value.provider_refresh_token === null ||
-        supabaseSession.value.provider_refresh_token === undefined)
-    ) {
-      // setIsTryingToLogin(true)
-      // await supabase.auth
-      //   .signInWithOAuth({
-      //     provider: "spotify",
-      //     options: { redirectTo: requestURL.origin + "/confirm", scopes: "user-top-read" }
-      //   })
-      //   .catch((error): void => {
-      //     console.error("Spotifyアカウントによるログインに失敗しました: ")
-      //     console.error(error)
-      //     logout()
-      //   })
-    }
   })
 </script>

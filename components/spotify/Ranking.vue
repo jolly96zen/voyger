@@ -121,15 +121,17 @@
   watch(data, (): void => {
     // console.dir(data.value.items)
   })
-  watch(error, (): void => {
+  watch(error, async (): Promise<void> => {
     console.error("アーティストランキングの取得に失敗しました。")
     console.error(error.value)
 
     errorStatusCode.value = error.value?.statusCode ?? 400
     if (errorStatusCode.value === 400) {
       errorStatusMessage.value = "Bad Request"
+      await loginWithSpotify()
     } else if (errorStatusCode.value === 401) {
       errorStatusMessage.value = "Unauthorized"
+      await loginWithSpotify()
     } else if (errorStatusCode.value === 403) {
       errorStatusMessage.value = "Forbidden"
     } else if (errorStatusCode.value === 429) {

@@ -25,12 +25,8 @@
   definePageMeta({ layout: "center" })
   useHead({ title: "login" })
 
-  const requestURL = useRequestURL()
-
   const userStore = useUserStore()
-  const { setIsTryingToLogin, $resetUserStore } = userStore
-
-  const supabase = useSupabaseClient()
+  const { $resetUserStore } = userStore
 
   const isLoginNotificationHidden: Ref<boolean> = ref(false)
   const isLoginAlertHidden: Ref<boolean> = ref(true)
@@ -41,20 +37,6 @@
 
   const tryDemo = () => {
     return navigateTo("/dashboard")
-  }
-
-  const loginWithSpotify = async (): Promise<void> => {
-    setIsTryingToLogin(true)
-    await supabase.auth
-      .signInWithOAuth({
-        provider: "spotify",
-        options: { redirectTo: requestURL.origin + "/confirm", scopes: "user-top-read" }
-      })
-      .catch((error): void => {
-        console.error("Spotifyアカウントによるログインに失敗しました: ")
-        console.error(error)
-        isLoginAlertHidden.value = false
-      })
   }
 
   onMounted((): void => {
