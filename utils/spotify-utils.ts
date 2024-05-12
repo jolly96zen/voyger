@@ -4,7 +4,7 @@ export const getSpotifyRefreshToken = async () => {
 
   return await useLazyFetch("https://accounts.spotify.com/api/token", {
     method: "POST",
-    headers: { contentType: "application/x-www-form-urlencoded" },
+    headers: { "content-type": "application/x-www-form-urlencoded" },
     body: {
       grant_type: "refresh_token",
       refresh_token: supabaseSession.value?.provider_refresh_token ?? "",
