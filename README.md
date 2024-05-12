@@ -1,6 +1,8 @@
-# Nuxt 3 Minimal Starter
+# Voyger
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+バンド沼にハマって人生おしまいになる人が増えたら良いな、と思って開発を始めました。  
+https://voyger-demo.netlify.app でデモ版をホスティングしています。  
+まだアーティストランキング機能しかありませんが、徐々に機能を充実させていく予定です。
 
 ## Commit Prefix
 * add: 機能やファイルを追加する場合
