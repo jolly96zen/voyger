@@ -118,11 +118,8 @@
     pick: ["items"]
   })
 
-  watch(data, async (): Promise<void> => {
+  watch(data, (): void => {
     // console.dir(data.value.items)
-    const { data, pending, error } = await getSpotifyRefreshToken()
-    console.dir(data.value)
-    console.dir(error.value)
   })
   watch(error, (): void => {
     console.error("アーティストランキングの取得に失敗しました。")
