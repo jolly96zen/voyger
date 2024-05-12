@@ -12,7 +12,7 @@
           class="my-1"
         />
         <LoginCard
-          class="my-1"
+          class="my-1 max-w-sm"
           @try-demo="tryDemo()"
           @login-with-spotify="loginWithSpotify()"
         />
