@@ -13,7 +13,11 @@
         </div>
         <div v-else-if="error !== null">
           <div class="mx-2 my-2 flex flex-col">
-            <NuxtImg
+            <!-- <NuxtImg
+              src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
+              alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
+            /> -->
+            <img
               src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
               alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
             />
@@ -51,7 +55,11 @@
                   <div class="flex items-center gap-2">
                     <div class="avatar">
                       <div class="mask mask-squircle h-8 w-8">
-                        <NuxtImg
+                        <!-- <NuxtImg
+                          :src="item.images[0].url"
+                          alt="Artist Image"
+                        /> -->
+                        <img
                           :src="item.images[0].url"
                           alt="Artist Image"
                         />

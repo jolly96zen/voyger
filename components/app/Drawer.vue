@@ -36,7 +36,12 @@
               to="/dashboard"
               class="flex"
             >
-              <NuxtImg
+              <!-- <NuxtImg
+                src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
+                alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
+                class="h-12 w-12"
+              /> -->
+              <img
                 src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
                 alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
                 class="h-12 w-12"
@@ -52,7 +57,11 @@
                 class="avatar btn btn-circle btn-ghost"
               >
                 <div class="h-8 w-8 rounded-full">
-                  <NuxtImg
+                  <!-- <NuxtImg
+                    :src="supabaseUser?.user_metadata['avatar_url'] ?? supabaseUser?.user_metadata['picture'] ?? ''"
+                    :alt="supabaseUser?.user_metadata['avatar_url'] ?? supabaseUser?.user_metadata['picture'] ?? ''"
+                  /> -->
+                  <img
                     :src="supabaseUser?.user_metadata['avatar_url'] ?? supabaseUser?.user_metadata['picture'] ?? ''"
                     :alt="supabaseUser?.user_metadata['avatar_url'] ?? supabaseUser?.user_metadata['picture'] ?? ''"
                   />

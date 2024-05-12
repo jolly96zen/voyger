@@ -1,8 +1,12 @@
 <template>
   <div>
-    <div class="card card-compact bg-teal-700">
+    <div class="card card-compact max-w-sm bg-teal-700">
       <figure>
-        <NuxtImg
+        <!-- <NuxtImg
+          src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
+          alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
+        /> -->
+        <img
           src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
           alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
         />
