@@ -27,7 +27,8 @@
             >
               <div class="text-sm text-error">
                 <div>アーティストランキングの取得に失敗しました。</div>
-                <div>しばらく時間を空けてから、アプリをリロードしてください</div>
+                <div>statusCode: {{ errorStatusCode }}</div>
+                <div>statusMessage: {{ errorStatusMessage }}</div>
               </div>
             </div>
           </div>
@@ -104,6 +105,9 @@
   const spotifyRequestLimit: Ref<number> = ref(10)
   const spotifyRequestOffset: Ref<number> = ref(0)
 
+  const errorStatusCode: Ref<number> = ref(400)
+  const errorStatusMessage: Ref<string> = ref("")
+
   const { data, pending, error } = await useLazyFetch("https://api.spotify.com/v1/me/top/" + spotifyRequestType.value, {
     query: {
       time_range: spotifyRequestTimeRange.value,
@@ -114,11 +118,25 @@
     pick: ["items"]
   })
 
-  watch(data, (): void => {
+  watch(data, async (): Promise<void> => {
     // console.dir(data.value.items)
+    const { data, pending, error } = await getSpotifyRefreshToken()
+    console.dir(data.value)
+    console.dir(error.value)
   })
   watch(error, (): void => {
     console.error("アーティストランキングの取得に失敗しました。")
     console.error(error.value)
+
+    errorStatusCode.value = error.value?.statusCode ?? 400
+    if (errorStatusCode.value === 400) {
+      errorStatusMessage.value = "Bad Request"
+    } else if (errorStatusCode.value === 401) {
+      errorStatusMessage.value = "Unauthorized"
+    } else if (errorStatusCode.value === 403) {
+      errorStatusMessage.value = "Forbidden"
+    } else if (errorStatusCode.value === 429) {
+      errorStatusMessage.value = "Too Many Requests"
+    }
   })
 </script>
