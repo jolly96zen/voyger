@@ -26,7 +26,7 @@ export const logout = async () => {
   const supabase = useSupabaseClient()
 
   $resetUserStore()
-  await supabase.auth.signOut()
+  await supabase.auth.signOut({ scope: "local" })
 
   return navigateTo("/login")
 }
