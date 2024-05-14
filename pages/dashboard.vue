@@ -11,6 +11,7 @@
     </div>
     <div class="grid grid-cols-1 justify-items-stretch gap-2 lg:grid-cols-2">
       <SpotifyArtistRanking class="mx-2 my-2" />
+      <SpotifyTrackRanking class="mx-2 my-2" />
     </div>
   </div>
 </template>
