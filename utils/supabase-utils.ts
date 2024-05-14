@@ -16,6 +16,8 @@ export const loginWithSpotify = async (): Promise<void> => {
       window.alert("Spotifyアカウントによるログインに失敗しました。")
       console.error("Spotifyアカウントによるログインに失敗しました:")
       console.error(error)
+
+      setIsTryingToLogin(false)
     })
 }
 
