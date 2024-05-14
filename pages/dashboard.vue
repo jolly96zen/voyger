@@ -9,9 +9,9 @@
     <div v-if="supabaseSession !== null && supabaseUser?.confirmed_at === undefined">
       <DashboardAlert class="mx-2 my-2 max-w-fit" />
     </div>
-    <div class="grid grid-cols-1 justify-items-stretch gap-2 lg:grid-cols-2">
-      <SpotifyArtistsRanking class="mx-2 my-2" />
-      <SpotifyTracksRanking class="mx-2 my-2" />
+    <div class="mx-2 my-2 grid grid-cols-1 gap-2 lg:grid-cols-2">
+      <SpotifyArtistsRanking />
+      <SpotifyTracksRanking />
     </div>
   </div>
 </template>

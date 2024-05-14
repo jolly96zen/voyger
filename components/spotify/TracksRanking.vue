@@ -53,9 +53,9 @@
         </div>
         <div
           v-else
-          class="min-w-full overflow-x-auto bg-neutral"
+          class="max-h-96 min-w-full overflow-x-auto bg-neutral"
         >
-          <table class="table table-zebra">
+          <table class="table table-zebra table-pin-rows">
             <thead>
               <tr>
                 <th>Rank</th>
