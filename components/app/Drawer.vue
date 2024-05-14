@@ -134,9 +134,19 @@
   const userStore = useUserStore()
   const { setIsTryingToLogin } = userStore
 
+  const supabaseSession = useSupabaseSession()
   const supabaseUser = useSupabaseUser()
 
   onMounted((): void => {
     setIsTryingToLogin(false)
+  })
+
+  watch(supabaseSession, () => {
+    if (supabaseSession.value === null) {
+      console.warn("セッションが無効です。")
+      console.info("ログイン画面に遷移します。")
+
+      return navigateTo("/login")
+    }
   })
 </script>
