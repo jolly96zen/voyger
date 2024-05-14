@@ -22,21 +22,11 @@ export const loginWithSpotify = async (): Promise<void> => {
 }
 
 export const logout = async () => {
-  const userStore = useUserStore()
-  const { $resetUserStore } = userStore
-
   const supabase = useSupabaseClient()
 
-  await supabase.auth
-    .signOut({ scope: "local" })
-    .catch((error) => {
-      window.alert("ログアウトに失敗しました。")
-      console.error("ログアウトに失敗しました:")
-      console.error(error)
-    })
-    .finally(() => {
-      $resetUserStore()
-
-      return navigateTo("/login")
-    })
+  await supabase.auth.signOut().catch((error) => {
+    window.alert("ログアウトに失敗しました。")
+    console.error("ログアウトに失敗しました:")
+    console.error(error)
+  })
 }
