@@ -7,26 +7,31 @@ export const loginWithSpotify = async (): Promise<void> => {
   const supabase = useSupabaseClient()
 
   setIsTryingToLogin(true)
-  await supabase.auth
-    .signInWithOAuth({
-      provider: "spotify",
-      options: { redirectTo: requestURL.origin + "/confirm", scopes: "user-top-read" }
-    })
-    .catch((error): void => {
-      window.alert("Spotifyアカウントによるログインに失敗しました。")
-      console.error("Spotifyアカウントによるログインに失敗しました:")
-      console.error(error)
 
-      setIsTryingToLogin(false)
-    })
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "spotify",
+    options: { redirectTo: requestURL.origin + "/confirm", scopes: "user-top-read" }
+  })
+
+  if (error !== null) {
+    window.alert("Spotifyアカウントによるログインに失敗しました。")
+    console.error("Spotifyアカウントによるログインに失敗しました:")
+    console.error(error)
+
+    setIsTryingToLogin(false)
+  }
 }
 
-export const logout = async () => {
+export const logout = async (): Promise<void> => {
   const supabase = useSupabaseClient()
 
-  await supabase.auth.signOut().catch((error) => {
+  const { error } = await supabase.auth.signOut({ scope: "local" })
+
+  if (error !== null) {
     window.alert("ログアウトに失敗しました。")
     console.error("ログアウトに失敗しました:")
     console.error(error)
-  })
+
+    await loginWithSpotify()
+  }
 }
