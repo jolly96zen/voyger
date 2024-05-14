@@ -35,10 +35,6 @@
         </div>
         <div v-else-if="error !== null">
           <div class="mx-2 my-2 flex flex-col">
-            <img
-              src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
-              alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
-            />
             <div
               role="alert"
               class="alert border-2 border-error text-left"
@@ -49,6 +45,10 @@
                 <div>statusMessage: {{ errorStatusMessage }}</div>
               </div>
             </div>
+            <img
+              src="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
+              alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b23d77bff26120f06097d_056.png"
+            />
           </div>
         </div>
         <div
