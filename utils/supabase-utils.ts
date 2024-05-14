@@ -25,8 +25,16 @@ export const logout = async () => {
 
   const supabase = useSupabaseClient()
 
-  $resetUserStore()
-  await supabase.auth.signOut({ scope: "local" })
+  await supabase.auth
+    .signOut({ scope: "local" })
+    .catch((error) => {
+      window.alert("ログアウトに失敗しました。")
+      console.error("ログアウトに失敗しました:")
+      console.error(error)
+    })
+    .finally(() => {
+      $resetUserStore()
 
-  return navigateTo("/login")
+      return navigateTo("/login")
+    })
 }
