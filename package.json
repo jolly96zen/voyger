@@ -9,11 +9,11 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "preinstall": "pnpx only-allow pnpm",
-    "voy": "pnpm run voy:install && pnpm run dev",
-    "voy:remove": "rm -rf .nuxt .pnpm-store node_modules pnpm-lock.yaml",
-    "voy:install": "pnpm run voy:remove && pnpm install",
-    "voy:check-updates": "pnpx npm-check-updates",
-    "voy:upgrade": "pnpx npm-check-updates -u"
+    "voyger": "pnpm run voyger:install && pnpm run dev",
+    "voyger:remove": "rm -rf .nuxt .pnpm-store node_modules pnpm-lock.yaml",
+    "voyger:install": "pnpm run voyger:remove && pnpm install",
+    "voyger:check-updates": "pnpx npm-check-updates",
+    "voyger:upgrade": "pnpx npm-check-updates -u"
   },
   "dependencies": {
     "nuxt": "3.11.2",
