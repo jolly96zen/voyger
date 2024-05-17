@@ -55,7 +55,10 @@
           v-else
           class="max-h-96 min-w-full overflow-x-auto bg-neutral"
         >
-          <table class="table table-zebra table-pin-rows">
+          <table
+            id="shareImageOnSNSTarget"
+            class="table table-zebra table-pin-rows"
+          >
             <thead>
               <tr>
                 <th>Rank</th>
@@ -107,9 +110,10 @@
         <div>SNSでランキングを共有してみましょう。</div>
         <div class="card-actions justify-end">
           <button
-            class="btn btn-primary btn-sm"
-            disabled
+            class="btn btn-sm bg-neutral"
+            @click="shareImageOnSNS('shareImageOnSNSTarget', 'Voyger', '楽曲ランキング', requestURL.origin)"
           >
+            <i class="bi bi-share-fill"></i>
             Share
           </button>
         </div>
