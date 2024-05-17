@@ -105,9 +105,13 @@
           aria-label="close sidebar"
           class="drawer-overlay"
         ></label>
-        <ul class="menu min-h-screen w-80 bg-gray-700 p-4">
+        <ul
+          class="menu min-h-screen w-80 bg-gray-700 p-4"
+          @click="toggleMenuActiveStateByRequestURL"
+        >
           <li>
             <NuxtLink
+              id="/dashboard"
               to="/dashboard"
               class="font-semibold"
             >
@@ -122,14 +126,32 @@
 </template>
 
 <script setup lang="ts">
+  const requestURL = useRequestURL()
+
   const userStore = useUserStore()
   const { setIsTryingToLogin } = userStore
 
   const supabaseSession = useSupabaseSession()
   const supabaseUser = useSupabaseUser()
 
+  const menuIDs = ["/dashboard"]
+
+  const toggleMenuActiveStateByRequestURL = (): void => {
+    for (const id of menuIDs) {
+      const menuElement = document.getElementById(id)
+      if (menuElement !== null) {
+        if (requestURL.pathname.includes(id)) {
+          menuElement.classList.add("active")
+        } else {
+          menuElement.classList.remove("active")
+        }
+      }
+    }
+  }
+
   onMounted((): void => {
     setIsTryingToLogin(false)
+    toggleMenuActiveStateByRequestURL()
   })
 
   watch(supabaseSession, () => {
