@@ -2,7 +2,7 @@
   <div>
     <DashboardNotification
       v-if="!isDashboardNotificationHidden"
-      :user-name="supabaseUser?.user_metadata['name']"
+      :user-name="supabaseUser?.user_metadata['full_name'] ?? supabaseUser?.user_metadata['name'] ?? 'Unknown'"
       class="mx-2 my-2 max-w-fit"
       @close-dashboard-notification="closeDashboardNotification"
     />
