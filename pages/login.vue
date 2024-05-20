@@ -21,6 +21,8 @@
   definePageMeta({ layout: "center" })
   useHead({ title: "login" })
 
+  const route = useRoute()
+
   const userStore = useUserStore()
   const { $resetUserStore } = userStore
 
@@ -34,7 +36,11 @@
     return navigateTo("/dashboard")
   }
 
-  onMounted((): void => {
+  onMounted(async (): Promise<void> => {
     $resetUserStore()
+
+    if (route.query["signInWithOAuth"] === "true") {
+      await loginWithSpotify()
+    }
   })
 </script>
