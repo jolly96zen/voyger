@@ -107,7 +107,7 @@
         ></label>
         <ul
           class="menu min-h-screen w-80 bg-gray-700 p-4"
-          @click="toggleMenuActiveStateByRequestURL"
+          @click="toggleMenuActiveStateOnClick"
         >
           <li>
             <NuxtLink
@@ -117,6 +117,16 @@
             >
               <i class="bi bi-bar-chart-fill"></i>
               ダッシュボード
+            </NuxtLink>
+          </li>
+          <li>
+            <NuxtLink
+              id="/live/information"
+              to="/live/information"
+              class="font-semibold"
+            >
+              <i class="bi bi-soundwave"></i>
+              ライブ情報
             </NuxtLink>
           </li>
         </ul>
@@ -134,13 +144,26 @@
   const supabaseSession = useSupabaseSession()
   const supabaseUser = useSupabaseUser()
 
-  const menuIDs = ["/dashboard"]
+  const menuIDs = ["/dashboard", "/live/information"]
 
   const toggleMenuActiveStateByRequestURL = (): void => {
     for (const id of menuIDs) {
       const menuElement = document.getElementById(id)
       if (menuElement !== null) {
         if (requestURL.pathname.includes(id)) {
+          menuElement.classList.add("active")
+        } else {
+          menuElement.classList.remove("active")
+        }
+      }
+    }
+  }
+
+  const toggleMenuActiveStateOnClick = (event): void => {
+    for (const id of menuIDs) {
+      const menuElement = document.getElementById(id)
+      if (menuElement !== null) {
+        if (event.target.id === id) {
           menuElement.classList.add("active")
         } else {
           menuElement.classList.remove("active")
