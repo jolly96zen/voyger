@@ -8,7 +8,6 @@ export default defineNuxtConfig({
   experimental: { typedPages: true },
   modules: [
     "@nuxt/eslint",
-    "@nuxt/image",
     "@nuxt/test-utils/module",
     "@nuxtjs/supabase",
     "@pinia/nuxt",
@@ -22,9 +21,6 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  // image: {
-  //   domains: ["website-files.com","scdn.co"]
-  // },
   supabase: {
     url: process.env?.["SUPABASE_PROJECT_URL"] ?? "",
     key: process.env?.["SUPABASE_API_KEY"] ?? "",
