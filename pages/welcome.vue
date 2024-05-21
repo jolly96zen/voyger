@@ -12,11 +12,18 @@
   definePageMeta({ layout: "center" })
   useHead({ title: "welcome" })
 
-  onMounted(async (): Promise<void> => {
-    await new Promise((): void => {
-      setTimeout(() => {
+  const userStore = useUserStore()
+  const { setCanRetryLogin } = userStore
+
+  onMounted((): void => {
+    setTimeout((): void => {
+      if (window.open("", "_self") !== null) {
+        setCanRetryLogin(true)
         window.close()
-      }, 5000)
-    })
+      } else {
+        window.alert("手動で画面を閉じてください。")
+        console.error("画面を閉じる処理に失敗しました。")
+      }
+    }, 3000)
   })
 </script>
