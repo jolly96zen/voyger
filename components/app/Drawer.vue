@@ -41,7 +41,7 @@
                 alt="https://assets-global.website-files.com/603c87adb15be3cb0b3ed9b5/662b2838e7afa9a2f67a36f1_105.png"
                 class="h-12 w-12"
               />
-              <div class="self-center text-2xl font-semibold">Voyger</div>
+              <div class="self-center text-2xl font-semibold">Voyager</div>
             </NuxtLink>
           </div>
           <div class="navbar-end">
@@ -89,11 +89,11 @@
             <div class="font-semibold">
               Repository URL:
               <a
-                href="https://github.com/jolly96zen/voyger"
+                href="https://github.com/jolly96zen/voyager"
                 target="_blank"
                 class="underline hover:no-underline"
               >
-                https://github.com/jolly96zen/voyger
+                https://github.com/jolly96zen/voyager
               </a>
             </div>
           </aside>

@@ -9,7 +9,7 @@
       </figure>
       <div class="card-body">
         <div class="card-title flex justify-center">
-          <div class="text-2xl">Voyger</div>
+          <div class="text-2xl">Voyager</div>
         </div>
         <hr />
         <div class="font-semibold">【ホームシック衛星 2024】</div>

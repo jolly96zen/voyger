@@ -111,7 +111,7 @@
         <div class="card-actions justify-end">
           <button
             class="btn btn-sm bg-neutral"
-            @click="shareImageOnSNS('shareImageOnSNSTarget', 'Voyger', '楽曲ランキング', requestURL.origin)"
+            @click="shareImageOnSNS('shareImageOnSNSTarget', 'Voyager', '楽曲ランキング', requestURL.origin)"
           >
             <i class="bi bi-share-fill"></i>
             Share

@@ -14,7 +14,7 @@
 <script setup lang="ts">
   useHead({
     titleTemplate: (pageTitle): string => {
-      return pageTitle !== undefined ? "Voyger" + " - " + pageTitle : "Voyger"
+      return pageTitle !== undefined ? "Voyager" + " - " + pageTitle : "Voyager"
     }
   })
 </script>

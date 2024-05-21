@@ -5,7 +5,7 @@
       class="alert border-2 border-warning text-left"
     >
       <div class="text-sm text-warning">
-        <div>Voygerは、Spotify APIを利用します。</div>
+        <div>Voyagerは、Spotify APIを利用します。</div>
         <div>
           参考URL:
           <a

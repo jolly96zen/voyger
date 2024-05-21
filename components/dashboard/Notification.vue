@@ -6,7 +6,7 @@
     >
       <div class="text-sm text-success">
         <div>こんにちは、{{ userName }}さん。</div>
-        <div>Voygerへようこそ！こちらはダッシュボード画面です。</div>
+        <div>Voyagerへようこそ！こちらはダッシュボード画面です。</div>
       </div>
       <div class="self-end">
         <button

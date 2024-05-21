@@ -32,7 +32,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
       return navigateTo("/login")
     }
   } else if (to.path.includes("/welcome")) {
-    console.info("Voygerへようこそ！")
+    console.info("Voyagerへようこそ！")
   } else {
     if (supabaseSession.value === null) {
       console.warn("セッションが無効です。")

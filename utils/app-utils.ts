@@ -15,7 +15,7 @@ export const shareImageOnSNS = async (
       .then(async (blob): Promise<void> => {
         if (blob !== null) {
           const shareData = {
-            title: shareDataTitle ?? "Voyger",
+            title: shareDataTitle ?? "Voyager",
             text: shareDataText ?? "",
             url: shareDataURL ?? requestURL.origin,
             files: [

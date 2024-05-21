@@ -1,7 +1,7 @@
-# Voyger
+# Voyager
 
 バンド沼にハマって人生おしまいになる人が増えたら良いな、と思って開発を始めました。  
-https://voyger-demo.netlify.app でデモ版をホスティングしています。  
+https://voyager-demo.netlify.app でデモ版をホスティングしています。  
 まだアーティストランキング機能しかありませんが、徐々に機能を充実させていく予定です。
 
 ## Commit Prefix
