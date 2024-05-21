@@ -12,11 +12,26 @@
   definePageMeta({ layout: "center" })
   useHead({ title: "confirm" })
 
-  onMounted(async (): Promise<void> => {
-    await new Promise((): void => {
-      setTimeout(() => {
-        return navigateTo("/login")
-      }, 5000)
-    })
+  const supabaseSession = useSupabaseSession()
+
+  // onMounted(async (): Promise<void> => {
+  //   await new Promise((): void => {
+  //     setTimeout(() => {
+  //       return navigateTo("/login")
+  //     }, 5000)
+  //   })
+  // })
+
+  watch(supabaseSession, () => {
+    if (
+      supabaseSession.value !== null &&
+      supabaseSession.value.provider_refresh_token !== null &&
+      supabaseSession.value.provider_refresh_token !== undefined
+    ) {
+      console.info("セッションが有効です。")
+      console.info("ダッシュボード画面に遷移します。")
+
+      return navigateTo("/dashboard")
+    }
   })
 </script>
