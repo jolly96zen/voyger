@@ -139,7 +139,7 @@
   const requestURL = useRequestURL()
 
   const userStore = useUserStore()
-  const { setIsTryingToLogin } = userStore
+  const { setIsTryingToLogin, setCanRetryLogin } = userStore
 
   const supabaseSession = useSupabaseSession()
   const supabaseUser = useSupabaseUser()
@@ -174,6 +174,7 @@
 
   onMounted((): void => {
     setIsTryingToLogin(false)
+    setCanRetryLogin(false)
     toggleMenuActiveStateByRequestURL()
   })
 

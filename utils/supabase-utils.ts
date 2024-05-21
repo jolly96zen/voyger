@@ -4,11 +4,11 @@ export const loginWithSpotify = async (): Promise<void> => {
   const userStore = useUserStore()
   const { setIsTryingToLogin } = userStore
 
-  const supabase = useSupabaseClient()
+  const supabaseClient = useSupabaseClient()
 
   setIsTryingToLogin(true)
 
-  const { error } = await supabase.auth.signInWithOAuth({
+  const { error } = await supabaseClient.auth.signInWithOAuth({
     provider: "spotify",
     options: { redirectTo: requestURL.origin + "/confirm", scopes: "user-top-read" }
   })
@@ -23,9 +23,9 @@ export const loginWithSpotify = async (): Promise<void> => {
 }
 
 export const logout = async (): Promise<void> => {
-  const supabase = useSupabaseClient()
+  const supabaseClient = useSupabaseClient()
 
-  const { error } = await supabase.auth.signOut({ scope: "local" })
+  const { error } = await supabaseClient.auth.signOut({ scope: "local" })
 
   if (error !== null) {
     window.alert("ログアウトに失敗しました。")
